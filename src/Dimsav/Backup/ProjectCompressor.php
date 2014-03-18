@@ -3,7 +3,7 @@
 use Dimsav\UnixZipper;
 
 
-class ProjectCompressor {
+class ProjectCompressor implements CompressorInterface {
 
     /** @var  \Dimsav\UnixZipper */
     private $zipper;

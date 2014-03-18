@@ -28,16 +28,23 @@ class ProjectRepository {
     /**
      * @return Project[]
      */
-    public function withPaths()
-    {
+    public function withPaths() {
         $projects = array();
-
         foreach ($this->all() as $project)
         {
             if ($project->getPaths())
                 $projects[] = $project;
         }
+        return $projects;
+    }
 
+    public function withDatabase() {
+        $projects = array();
+        foreach ($this->all() as $project)
+        {
+            if ($project->getDbName())
+                $projects[] = $project;
+        }
         return $projects;
     }
 

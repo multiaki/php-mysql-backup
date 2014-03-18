@@ -23,6 +23,7 @@ class ProjectManager {
     public function backup()
     {
         $this->compressProjectsPaths();
+        $this->compressProjectDatabases();
     }
 
     private function compressProjectsPaths()
@@ -32,6 +33,14 @@ class ProjectManager {
             $this->log->info("Compressing project " .$project->getName());
             $compressor = new ProjectCompressor($project, new UnixZipper());
             $compressor->compress();
+        }
+    }
+
+    private function compressProjectDatabases()
+    {
+        foreach ($this->repo->withDatabase() as $project)
+        {
+
         }
     }
 }

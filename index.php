@@ -147,6 +147,7 @@ function sendFilesToDropbox($filePaths, $projectName)
         try {
             $dropbox->upload($filePath, $dropboxDestinationFolder);
             $log->logInfo('File ' . basename($filePath) . " was successfully uploaded to dropbox ($projectName).");
+             unlink($filePaths);
         }
         catch (Exception $e)
         {
